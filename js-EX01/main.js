@@ -2,6 +2,7 @@
 
 
 function output () {
-    var out = "Output";
-    document.writeln(out);
+    let out = "Let's get this text into the red";
+    let output = document.writeln(out);
+
 }
