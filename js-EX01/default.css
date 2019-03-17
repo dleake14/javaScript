@@ -1,0 +1,15 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+    color: yellow;
+    background: rgb(0, 0, 0);
+}
+
+div{
+    font-size: 150%;
+    font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
