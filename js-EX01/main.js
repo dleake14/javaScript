@@ -14,18 +14,16 @@ var line1 = document.getElementById('line1');
 var line2 = document.getElementById('line2');
 let home = "home";
 let qtrTxt = "QTR"
-let away = "away"
-let hScore = 0;
-let aScore = 0;
-let qtr = 0;
+let away = "away";
+let hScore = "-";
+let aScore = "-";
+let qtr = "-";
 build();
-
-/*padder(away, 1);
-padder(qtrTxt, 1);
-padder(home, 1);
-padder(aScore.toString(), 2);
-padder(qtr.toString(), 2);
-padder(hScore.toString(), 2);*/
+let homeRB = "home";
+let awayRB = "away"
+let hScoreRB = 0;
+let aScoreRB = 0;
+let qtrRB = 0;
 
 function build(){
     line1.textContent += padder(away);
@@ -39,19 +37,30 @@ function build(){
 function rebuild(){
     line1.textContent ="";
     line2.textContent ="";
-    line1.textContent += padder(away);
+    line1.textContent += padder(awayRB);
     line1.textContent += padder(qtrTxt);
-    line1.textContent += padder(home);
-    line2.textContent += padder(aScore);
-    line2.textContent += padder(qtr);
-    line2.textContent += padder(hScore);
+    line1.textContent += padder(homeRB);
+    line2.textContent += padder(aScoreRB);
+    line2.textContent += padder(qtrRB);
+    line2.textContent += padder(hScoreRB);
 }
 
 function buttonRebuild(){
-    away = document.getElementById("aNameRB").value;
-    home = document.getElementById("hNameRB").value;
-    aScore = document.getElementById("aScoreRB").value;
-    hScore = document.getElementById("hScoreRB").value;
-    qtr = document.getElementById("qtrRB").value;
+    if (document.getElementById("aNameRB").value != ""){
+        awayRB = document.getElementById("aNameRB").value;}
+    if (document.getElementById("hNameRB").value != ""){
+        homeRB = document.getElementById("hNameRB").value;}
+    if (document.getElementById("aScoreRB").value != ""){
+        aScoreRB = document.getElementById("aScoreRB").value;}
+    if (document.getElementById("hScoreRB").value != ""){
+        hScoreRB = document.getElementById("hScoreRB").value;}
+    if (document.getElementById("qtrRB").value != ""){
+        qtrRB = document.getElementById("qtrRB").value;}
     rebuild()
+    document.getElementById("aNameRB").value ="";
+    document.getElementById("hNameRB").value ="";
+    document.getElementById("aScoreRB").value ="";
+    document.getElementById("hScoreRB").value ="";
+    document.getElementById("qtrRB").value ="";
 }
+
