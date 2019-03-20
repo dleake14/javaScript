@@ -21,8 +21,12 @@ function topPad(str) {
 }
 
 var lineLength = 12;
-var line1 = document.getElementById('line1');
-var line2 = document.getElementById('line2');
+var awayDis = document.getElementById('awayDis');
+var qtrTitle = document.getElementById('qtrTitle');
+var homeDis = document.getElementById('homeDis');
+var aScoreDis = document.getElementById('aScoreDis');
+var qtrDis = document.getElementById('qtrDis');
+var hScoreDis = document.getElementById('hScoreDis');
 var topper = document.getElementById('topper');
 var topMes = "INIT";
 let home = "home";
@@ -37,22 +41,42 @@ let awayRB = "away"
 let hScoreRB = 0;
 let aScoreRB = 0;
 let qtrRB = 0;
+let who = "";
 
 function build(){
     topper.textContent = topPad(topMes);
-    line1.textContent += padder(away);
-    line1.textContent += padder(qtrTxt);
-    line1.textContent += padder(home);
-    line2.textContent += padder(aScore);
-    line2.textContent += padder(qtr);
-    line2.textContent += padder(hScore);
+    awayDis.textContent = padder(away);
+    qtrTitle.textContent = padder(qtrTxt);
+    homeDis.textContent = padder(home);
+    aScoreDis.textContent = padder(aScore);
+    qtrDis.textContent = padder(qtr);
+    hScoreDis.textContent = padder(hScore);
 }
 
-function rebuild(){
-    topper.textContent = line1.textContent = line2.textContent ="";
+function clear(){
+    topper.textContent = "";
+    awayDis.textContent = "";
+    qtrTitle.textContent = "";
+    homeDis.textContent = "";
+    aScoreDis.textContent = "";
+    qtrDis.textContent = "";
+    hScoreDis.textContent = "";
+    document.getElementById("aNameRB").value ="";
+    document.getElementById("hNameRB").value ="";
+    document.getElementById("aScoreRB").value ="";
+    document.getElementById("hScoreRB").value ="";
+    document.getElementById("qtrRB").value ="";
+    document.getElementById("topMes").value ="";
+}
+
+function rebuild() {
     topper.textContent = topPad(topMes);
-    line1.textContent += padder(awayRB) + padder(qtrTxt) + padder(homeRB);
-    line2.textContent += padder(aScoreRB) + padder(qtrRB) + padder(hScoreRB);
+    awayDis.textContent = padder(awayRB);
+    qtrTitle.textContent = padder(qtrTxt);
+    homeDis.textContent = padder(homeRB);
+    aScoreDis.textContent = padder(aScoreRB);
+    qtrDis.textContent = padder(qtrRB);
+    hScoreDis.textContent = padder(hScoreRB);
 }
 
 function buttonRebuild(){
@@ -68,13 +92,8 @@ function buttonRebuild(){
         qtrRB = document.getElementById("qtrRB").value;}
     if (document.getElementById("topMes").value != ""){
         topMes = document.getElementById("topMes").value;}
+    clear();
     rebuild()
-    document.getElementById("aNameRB").value ="";
-    document.getElementById("hNameRB").value ="";
-    document.getElementById("aScoreRB").value ="";
-    document.getElementById("hScoreRB").value ="";
-    document.getElementById("qtrRB").value ="";
-    document.getElementById("topMes").value ="";
 }
 
 window.addEventListener("keydown", function(event) {
@@ -85,11 +104,34 @@ window.addEventListener("keydown", function(event) {
     }
 }, true);
 
+function scoreBlink(to){
+    if (who == "away") {
+        document.getElementById('awayDis').setAttribute("class", "teamHL");
+        document.getElementById('aScoreDis').setAttribute("class", "blinking");
+    }
+    else {
+        document.getElementById('homeDis').setAttribute("class", "teamHL");
+        document.getElementById('hScoreDis').setAttribute("class", "blinking");
+    }
+    toPass = parseInt(to) * 1000;
+    setTimeout(forReset, toPass);
+}
+
+function forReset (){
+    document.getElementById('awayDis').setAttribute("class","mainLines");
+    document.getElementById('aScoreDis').setAttribute("class","mainLines");
+    document.getElementById('homeDis').setAttribute("class","mainLines");
+    document.getElementById('hScoreDis').setAttribute("class","mainLines");
+}
+
 function tdAway(){
     topMes = "";
     topMes = "TOUCHDOWN " + [awayRB];
+    who = "away";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 6;
+    who = "away";
+    scoreBlink(5);
     rebuild();
 }
 
@@ -98,36 +140,46 @@ function tdHome(){
     topMes = "TOUCHDOWN " + [homeRB];
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 6;
+    who = "home";
+    scoreBlink(5);
     rebuild();
 }
 
 function fgAway(){
     topMes = "";
+    who = "away";
     topMes = "FIELD GOAL IS GOOD";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 3;
+    scoreBlink(3);
     rebuild();
 }
 
 function fgHome(){
     topMes = "";
+    who = "home";
     topMes = "FIELD GOAL IS GOOD";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 3;
+    scoreBlink(3);
     rebuild();
 }
 
 function twoAway(){
     topMes = "";
+    who = "away";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 2;
+    scoreBlink(5);
     rebuild();
 }
 
 function twoHome(){
     topMes = "";
+    who = "home";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 2;
+    scoreBlink(5);
     rebuild();
 }
 
@@ -136,6 +188,7 @@ function oneAway(){
     topMes = "EXTRA POINT IS GOOD";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 1;
+    scoreBlink(1);
     rebuild();
 }
 
@@ -144,5 +197,6 @@ function oneHome(){
     topMes = "EXTRA POINT IS GOOD";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 1;
+    scoreBlink(1);
     rebuild();
 }

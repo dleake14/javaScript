@@ -5,6 +5,7 @@ body {
     background: rgb(0, 0, 0);
 }
 
+
 div{
     font-size: 150%;
     font-family: monospace;
@@ -12,5 +13,27 @@ div{
     display: block;
     font-weight: bolder;
     text-transform: uppercase;
+}
+.mainLines {
+    display: inline-block;
+}
 
+.teamHL {
+    background: yellow;
+    color: black;
+    display: inline-block;
+}
+
+.blinking{
+    background-color: black;
+    color: yellow;
+    animation: blinkingText infinite;
+    animation-duration: 1s;
+    display: inline-block;
+}
+@keyframes blinkingText{
+    from {background-color: yellow;
+        color: black;}
+    to {background-color: black;
+        color: yellow;}
 }
