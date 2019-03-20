@@ -9,12 +9,26 @@ function padder(str) {
     return out;
 }
 
+
+function midPad(str) {
+    str = str.toString();
+    lineLength = 5;
+    let pstart = 0, pend = 0;
+    let odder = 0;
+    if ((str.length % 2) == 1){odder = 1;}
+    pstart = (Math.floor((lineLength / 2))) +  (Math.floor((parseInt(str.length) / 2))) + odder;
+    pend =  lineLength;
+    let out = str.padStart([pstart]).padEnd([pend]);
+    lineLength = 12;
+    return out;
+}
+
 function topPad(str) {
     str = str.toString();
     let pstart = 0, pend = 0;
     let odder = 0;
     if ((str.length % 2) == 1){odder = 1;}
-    pstart =  (str.length) + (((lineLength *3) / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
+    pstart =  (str.length) + ((((lineLength *2)+ 5) / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
     pend =  lineLength;
     let out = str.padStart([pstart]).padEnd([pend]);
     return out;
@@ -46,10 +60,10 @@ let who = "";
 function build(){
     topper.textContent = topPad(topMes);
     awayDis.textContent = padder(away);
-    qtrTitle.textContent = padder(qtrTxt);
+    qtrTitle.textContent = midPad(qtrTxt);
     homeDis.textContent = padder(home);
     aScoreDis.textContent = padder(aScore);
-    qtrDis.textContent = padder(qtr);
+    qtrDis.textContent = midPad(qtr);
     hScoreDis.textContent = padder(hScore);
 }
 
@@ -72,10 +86,10 @@ function clear(){
 function rebuild() {
     topper.textContent = topPad(topMes);
     awayDis.textContent = padder(awayRB);
-    qtrTitle.textContent = padder(qtrTxt);
+    qtrTitle.textContent = midPad(qtrTxt);
     homeDis.textContent = padder(homeRB);
     aScoreDis.textContent = padder(aScoreRB);
-    qtrDis.textContent = padder(qtrRB);
+    qtrDis.textContent = midPad(qtrRB);
     hScoreDis.textContent = padder(hScoreRB);
 }
 
