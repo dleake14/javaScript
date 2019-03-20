@@ -6,17 +6,28 @@
     <link href="default.css" rel="stylesheet">
 </head>
 <body>
+<div id="output"></div>
+<div id="topper"></div>
 <div id="line1"></div>
 <div id="line2"></div>
+<br><br><br>
+<input id = "tdAway" type="button" value="Away +6" onclick="tdAway()"><input id = "fgAway" type="button" value="Away +3" onclick="fgAway()">
+<input id = "tdHome" style="margin-left:60px;" type="button" value="Home +6" onclick="tdHome()"><input id = "fgHome" type="button" value="Home +3" onclick="fgHome()">
+<br>
+<input id = "oneAway" type="button" value="Away +1" onclick="oneAway()"><input id = "twoAway" type="button" value="Away +2" onclick="twoAway()">
+<input id = "oneHome" style="margin-left:60px;" type="button" value="Home +1" onclick="oneHome()"><input id = "twoHome" type="button" value="Home +2" onclick="twoHome()">
+<br>
+<input id="aNameRB" type="text" placeholder="Away Team">
+<input id="hNameRB" style="margin-left:35px;" type="text" placeholder="Home Team">
+<br>
+<input id="aScoreRB" type="text" placeholder="Away Score">
+<input id="hScoreRB" style="margin-left:35px;" type="text" placeholder="Home Score">
+<br>
+<input id="qtrRB" type="text" placeholder="QTR">
+<input id="topMes" style="margin-left:35px;" type="text" placeholder="Messenger">
 <br>
 <br>
 <input id="rebuildButton" type="button" value="Rebuild" onclick="buttonRebuild()">
-<br>
-<input id="aNameRB" type="text" placeholder="Away Team">
-<input id="hNameRB" type="text" placeholder="Home Team">
-<input id="aScoreRB" type="text" placeholder="Away Score">
-<input id="hScoreRB" type="text" placeholder="Home Score">
-<input id="qtrRB" type="text" placeholder="QTR">
 <script src="main.js"></script>
 </body>
 </html>
