@@ -2,11 +2,10 @@ function padder(str) {
     str = str.toString();
     let pstart = 0, pend = 0;
     let odder = 0;
-    if ((str.length % 2) == 1){odder = 1;}
+    if ((str.length % 2) === 1){odder = 1;}
     pstart =  (str.length) + ((lineLength / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
     pend =  lineLength;
-    let out = str.padStart([pstart]).padEnd([pend]);
-    return out;
+    return str.padStart([pstart]).padEnd([pend]);
 }
 
 
@@ -15,23 +14,21 @@ function midPad(str) {
     lineLength = 5;
     let pstart = 0, pend = 0;
     let odder = 0;
-    if ((str.length % 2) == 1){odder = 1;}
+    if ((str.length % 2) === 1){odder = 1;}
     pstart = (Math.floor((lineLength / 2))) +  (Math.floor((parseInt(str.length) / 2))) + odder;
     pend =  lineLength;
-    let out = str.padStart([pstart]).padEnd([pend]);
     lineLength = 12;
-    return out;
+    return str.padStart([pstart]).padEnd([pend]);
 }
 
 function topPad(str) {
     str = str.toString();
     let pstart = 0, pend = 0;
     let odder = 0;
-    if ((str.length % 2) == 1){odder = 1;}
+    if ((str.length % 2) === 1){odder = 1;}
     pstart =  (str.length) + ((((lineLength *2)+ 5) / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
     pend =  lineLength;
-    let out = str.padStart([pstart]).padEnd([pend]);
-    return out;
+    return str.padStart([pstart]).padEnd([pend]);
 }
 
 let lineLength = 12;
@@ -115,14 +112,14 @@ function buttonRebuild(){
 
 window.addEventListener("keydown", function(event) {
     let str =event.key;
-    if (str == 'Enter'){
+    if (str === 'Enter'){
         topMes ="";
         buttonRebuild();
     }
 }, true);
 
 function scoreBlink(to){
-    if (who == "away") {
+    if (who === "away") {
         document.getElementById('awayDis').setAttribute("class", "teamHL");
         document.getElementById('aScoreDis').setAttribute("class", "blinking");
     }
