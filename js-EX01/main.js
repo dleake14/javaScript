@@ -5,7 +5,8 @@ function padder(str) {
     if ((str.length % 2) === 1){odder = 1;}
     pstart =  (str.length) + ((lineLength / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
     pend =  lineLength;
-    return str.padStart([pstart]).padEnd([pend]);
+    let out = str.padStart([pstart]).padEnd([pend]);
+    return out;
 }
 
 
@@ -39,6 +40,9 @@ let aScoreDis = document.getElementById('aScoreDis');
 let qtrDis = document.getElementById('qtrDis');
 let hScoreDis = document.getElementById('hScoreDis');
 let topper = document.getElementById('topper');
+let ballOnDis = document.getElementById('ballOn');
+let dAndDDis = document.getElementById('dAndD');
+let possDis = document.getElementById('poss');
 let topMes = "INIT";
 let home = "home";
 let qtrTxt = "QTR";
@@ -52,9 +56,12 @@ let hScoreRB = 0;
 let aScoreRB = 0;
 let qtrRB = 0;
 let who = "";
-let poss = "";
-let dAndD = "";
-let ballOn = "";
+let poss = "-->";
+let dAndD = "1ST & 10";
+let ballOn = "-49";
+let possRB = "-->";
+let dAndDRB = "KO";
+let ballOnRB = "-35";
 build();
 
 function build(){
@@ -65,6 +72,9 @@ function build(){
     aScoreDis.textContent = padder(aScore);
     qtrDis.textContent = midPad(qtr);
     hScoreDis.textContent = padder(hScore);
+    dAndDDis.textContent = padder(dAndD);
+    possDis.textContent = midPad(poss);
+    ballOnDis.textContent = padder(ballOn);
 }
 
 function clear(){
@@ -91,6 +101,9 @@ function rebuild() {
     aScoreDis.textContent = padder(aScoreRB);
     qtrDis.textContent = midPad(qtrRB);
     hScoreDis.textContent = padder(hScoreRB);
+    dAndDDis.textContent = padder(dAndDRB);
+    possDis.textContent = midPad(possRB);
+    ballOnDis.textContent = padder(ballOnRB);
 }
 
 function buttonRebuild(){
