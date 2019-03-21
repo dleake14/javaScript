@@ -136,6 +136,10 @@ function forReset (){
     document.getElementById('aScoreDis').setAttribute("class","mainLines");
     document.getElementById('homeDis').setAttribute("class","mainLines");
     document.getElementById('hScoreDis').setAttribute("class","mainLines");
+    setTimeout(function() {
+        topMes = "";
+        rebuild();
+    }, 3000)
 }
 
 function tdAway(){
