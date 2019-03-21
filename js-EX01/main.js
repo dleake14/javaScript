@@ -34,28 +34,31 @@ function topPad(str) {
     return out;
 }
 
-var lineLength = 12;
-var awayDis = document.getElementById('awayDis');
-var qtrTitle = document.getElementById('qtrTitle');
-var homeDis = document.getElementById('homeDis');
-var aScoreDis = document.getElementById('aScoreDis');
-var qtrDis = document.getElementById('qtrDis');
-var hScoreDis = document.getElementById('hScoreDis');
-var topper = document.getElementById('topper');
-var topMes = "INIT";
+let lineLength = 12;
+let awayDis = document.getElementById('awayDis');
+let qtrTitle = document.getElementById('qtrTitle');
+let homeDis = document.getElementById('homeDis');
+let aScoreDis = document.getElementById('aScoreDis');
+let qtrDis = document.getElementById('qtrDis');
+let hScoreDis = document.getElementById('hScoreDis');
+let topper = document.getElementById('topper');
+let topMes = "INIT";
 let home = "home";
 let qtrTxt = "QTR"
 let away = "away";
 let hScore = "-";
 let aScore = "-";
 let qtr = "-";
-build();
 let homeRB = "home";
 let awayRB = "away"
 let hScoreRB = 0;
 let aScoreRB = 0;
 let qtrRB = 0;
 let who = "";
+let poss = "";
+let dAndD = "";
+let ballOn = "";
+build();
 
 function build(){
     topper.textContent = topPad(topMes);
@@ -94,17 +97,17 @@ function rebuild() {
 }
 
 function buttonRebuild(){
-    if (document.getElementById("aNameRB").value != ""){
+    if (document.getElementById("aNameRB").value !== ""){
         awayRB = document.getElementById("aNameRB").value;}
-    if (document.getElementById("hNameRB").value != ""){
+    if (document.getElementById("hNameRB").value !== ""){
         homeRB = document.getElementById("hNameRB").value;}
-    if (document.getElementById("aScoreRB").value != ""){
+    if (document.getElementById("aScoreRB").value !== ""){
         aScoreRB = document.getElementById("aScoreRB").value;}
-    if (document.getElementById("hScoreRB").value != ""){
+    if (document.getElementById("hScoreRB").value !== ""){
         hScoreRB = document.getElementById("hScoreRB").value;}
-    if (document.getElementById("qtrRB").value != ""){
+    if (document.getElementById("qtrRB").value !== ""){
         qtrRB = document.getElementById("qtrRB").value;}
-    if (document.getElementById("topMes").value != ""){
+    if (document.getElementById("topMes").value !== ""){
         topMes = document.getElementById("topMes").value;}
     clear();
     rebuild()
