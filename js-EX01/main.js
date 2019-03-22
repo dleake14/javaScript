@@ -68,6 +68,7 @@ let topper = document.getElementById('topper');
 let ballOnDis = document.getElementById('ballOnDis');
 let dAndDDis = document.getElementById('dAndDDis');
 let possDis = document.getElementById('possDis');
+let prevDaD = document.getElementById('prevDaD');
 let prevBO = document.getElementById('prevBO')
 let topMes = "INIT";
 let home = "home";
@@ -104,6 +105,7 @@ function build(){
     possDis.textContent = midPad(poss);
     ballOnDis.textContent = padder(ballOn);
     prevBO.textContent = "-"
+    prevDaD.textContent = "Init & Init";
 }
 
 function clear(){
@@ -142,6 +144,7 @@ function rebuild() {
 }
 
 function buttonRebuild(){
+    prevDaD.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
     if (document.getElementById("aNameRB").value !== ""){
         awayRB = document.getElementById("aNameRB").value;}
     if (document.getElementById("hNameRB").value !== ""){
@@ -172,6 +175,15 @@ window.addEventListener("keydown", function(event) {
         buttonRebuild();
     }
 }, true);
+
+/*function updateBtn(){
+    let reply;
+    if (isNaN(ballOnRB) === true || ballOnRB <= -50 || ballOnRB >=  50){reply = "Er";}
+
+
+    return reply;
+}*/
+
 
 function scoreBlink(to){
     if (who === "away") {
