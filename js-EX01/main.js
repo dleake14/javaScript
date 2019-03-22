@@ -41,18 +41,18 @@ function downer(down) {
         case 4: return "4th & ";
         case 5: return "PAT";
         case 6: return "";
+        default: return down;
     }
 }
 
-function dister(dist){
-    switch (dist){
-        case "": return "";
-        default: return dist;
-    }
+function dister(down, dist, gtg, fad){
+    if (Number.isNaN(dist) === true || down === 0 || down >= 5){return "";}
+    if (fad === true){return 10;}
+    return dist;
 }
+
 function dAndDisp (down, dist){
-    let dadDisp;
-    dadDisp = downer(down) + dister(dist);
+    let dadDisp = downer(down) + dister(down, dist);
     return dadDisp;
 }
 
@@ -65,9 +65,10 @@ let aScoreDis = document.getElementById('aScoreDis');
 let qtrDis = document.getElementById('qtrDis');
 let hScoreDis = document.getElementById('hScoreDis');
 let topper = document.getElementById('topper');
-let ballOnDis = document.getElementById('ballOn');
-let dAndDDis = document.getElementById('dAndD');
-let possDis = document.getElementById('poss');
+let ballOnDis = document.getElementById('ballOnDis');
+let dAndDDis = document.getElementById('dAndDDis');
+let possDis = document.getElementById('possDis');
+let prevBO = document.getElementById('prevBO')
 let topMes = "INIT";
 let home = "home";
 let qtrTxt = "QTR";
@@ -79,15 +80,16 @@ let homeRB = "home";
 let awayRB = "away";
 let hScoreRB = 0;
 let aScoreRB = 0;
-let qtrRB = 0;
+let qtrRB = "-";
 let who = "";
 let poss = "-->";
 let down = 0;
 let dist = 0;
 let ballOn = -40;
-let possRB = "-->";
-let dAndDRB = "KO";
-let ballOnRB = "-35";
+let possRB = "|";
+let downRB = "|";
+let distRB  = "|"
+let ballOnRB = "-|";
 build();
 
 function build(){
@@ -98,9 +100,10 @@ function build(){
     aScoreDis.textContent = padder(aScore);
     qtrDis.textContent = midPad(qtr);
     hScoreDis.textContent = padder(hScore);
-    dAndDDis.textContent = padder(dAndDisp(down, dist));
+    dAndDDis.textContent = padder(dAndDisp(parseInt(down), parseInt(dist)));
     possDis.textContent = midPad(poss);
     ballOnDis.textContent = padder(ballOn);
+    prevBO.textContent = "-"
 }
 
 function clear(){
@@ -111,12 +114,18 @@ function clear(){
     aScoreDis.textContent = "";
     qtrDis.textContent = "";
     hScoreDis.textContent = "";
+    dAndDDis.textContent = "";
+    possDis.textContent = "";
+    ballOnDis.textContent = "";
     document.getElementById("aNameRB").value ="";
     document.getElementById("hNameRB").value ="";
     document.getElementById("aScoreRB").value ="";
     document.getElementById("hScoreRB").value ="";
     document.getElementById("qtrRB").value ="";
     document.getElementById("topMes").value ="";
+    document.getElementById("downInp").value ="";
+    document.getElementById("distInp").value ="";
+    document.getElementById("ballOnInp").value ="";
 }
 
 function rebuild() {
@@ -127,7 +136,7 @@ function rebuild() {
     aScoreDis.textContent = padder(aScoreRB);
     qtrDis.textContent = midPad(qtrRB);
     hScoreDis.textContent = padder(hScoreRB);
-    dAndDDis.textContent = padder(dAndDRB);
+    dAndDDis.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
     possDis.textContent = midPad(possRB);
     ballOnDis.textContent = padder(ballOnRB);
 }
@@ -145,7 +154,13 @@ function buttonRebuild(){
         qtrRB = document.getElementById("qtrRB").value;}
     if (document.getElementById("topMes").value !== ""){
         topMes = document.getElementById("topMes").value;}
-
+    if (document.getElementById("downInp").value !== ""){
+        downRB = document.getElementById("downInp").value;}
+    if (document.getElementById("distInp").value !== ""){
+        distRB = document.getElementById("distInp").value;}
+    if (document.getElementById("ballOnInp").value !== ""){
+        prevBO.textContent = ballOnRB;
+        ballOnRB = document.getElementById("ballOnInp").value;}
     clear();
     rebuild()
 }
