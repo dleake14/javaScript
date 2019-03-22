@@ -4,6 +4,7 @@
     <list default="true" id="2872f1a6-7068-48f2-9cee-f39d28758916" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,14 +22,14 @@
     <option name="myElementSize" value="236" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.70096225">
+    <splitter split-orientation="horizontal" split-proportion="0.30940044">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="293">
-                  <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+                <state relative-caret-position="413">
+                  <caret line="32" column="81" lean-forward="true" selection-start-line="32" selection-start-column="81" selection-end-line="32" selection-end-column="81" />
                   <folding>
                     <element signature="n#style#0;n#input#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#input#6;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -38,6 +39,10 @@
                     <element signature="n#style#0;n#input#11;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#input#12;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#input#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#14;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#12;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#14;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -50,8 +55,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="286">
-                  <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
+                <state relative-caret-position="335">
+                  <caret line="55" column="19" lean-forward="true" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -110,8 +115,8 @@
         <option value="$PROJECT_DIR$/one.js" />
         <option value="$PROJECT_DIR$/default.css" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/main.js" />
       </list>
     </option>
   </component>
@@ -239,12 +244,12 @@
       <workItem from="1553115990662" duration="2495000" />
       <workItem from="1553130313017" duration="3414000" />
       <workItem from="1553267543023" duration="725000" />
-      <workItem from="1553276673539" duration="403000" />
+      <workItem from="1553276673539" duration="2523000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74006000" />
+    <option name="totallyTimeSpent" value="76126000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -271,7 +276,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298969" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298969" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.19734904" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.19616519" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033265" side_tool="true" weight="0.29307806" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -284,6 +289,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/main.js</url>
+          <line>49</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception">
           <properties />
@@ -392,13 +405,6 @@
     <entry file="http://localhost:63342/js-EX01/main.js">
       <provider selected="true" editor-type-id="httpFileEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/default.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -408,8 +414,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        <state relative-caret-position="413">
+          <caret line="32" column="81" lean-forward="true" selection-start-line="32" selection-start-column="81" selection-end-line="32" selection-end-column="81" />
           <folding>
             <element signature="n#style#0;n#input#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#6;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -419,7 +425,18 @@
             <element signature="n#style#0;n#input#11;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#12;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#14;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#12;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#14;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="55" column="19" lean-forward="true" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
         </state>
       </provider>
     </entry>

@@ -32,6 +32,31 @@ function topPad(str) {
     return str.padStart([pstart]).padEnd([pend]);
 }
 
+function downer(down) {
+    switch (down){
+        case 0: return "KO";
+        case 1: return "1st & ";
+        case 2: return "2nd & ";
+        case 3: return "3rd & ";
+        case 4: return "4th & ";
+        case 5: return "PAT";
+        case 6: return "";
+    }
+}
+
+function dister(dist){
+    switch (dist){
+        case "": return "";
+        default: return dist;
+    }
+}
+function dAndDisp (down, dist){
+    let dadDisp;
+    dadDisp = downer(down) + dister(dist);
+    return dadDisp;
+}
+
+
 let lineLength = 12;
 let awayDis = document.getElementById('awayDis');
 let qtrTitle = document.getElementById('qtrTitle');
@@ -57,8 +82,9 @@ let aScoreRB = 0;
 let qtrRB = 0;
 let who = "";
 let poss = "-->";
-let dAndD = "1ST & 10";
-let ballOn = "-49";
+let down = 0;
+let dist = 0;
+let ballOn = -40;
 let possRB = "-->";
 let dAndDRB = "KO";
 let ballOnRB = "-35";
@@ -72,7 +98,7 @@ function build(){
     aScoreDis.textContent = padder(aScore);
     qtrDis.textContent = midPad(qtr);
     hScoreDis.textContent = padder(hScore);
-    dAndDDis.textContent = padder(dAndD);
+    dAndDDis.textContent = padder(dAndDisp(down, dist));
     possDis.textContent = midPad(poss);
     ballOnDis.textContent = padder(ballOn);
 }
@@ -119,6 +145,7 @@ function buttonRebuild(){
         qtrRB = document.getElementById("qtrRB").value;}
     if (document.getElementById("topMes").value !== ""){
         topMes = document.getElementById("topMes").value;}
+
     clear();
     rebuild()
 }
