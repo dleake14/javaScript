@@ -84,12 +84,12 @@ let down = 0;
 let dist = -1;
 let ballOn = -40;
 let possRB = "|";
-let downRB = "|";
-let distRB  = "|"
-let ballOnRB = "-|";
-let prevBO = 0;
+let downRB = 0;
+let distRB  = -1
+let ballOnRB = -40;
+let prevBO = -40;
 let prevDown = 0;
-let prevDist = 0;
+let prevDist = -1;
 build();
 
 function build(){
@@ -264,6 +264,9 @@ function tdAway(){
     who = "away";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 6;
+    downRB = 5;
+    distRB = 0;
+    ballOnRB = 3;
     who = "away";
     scoreBlink(5);
     rebuild();
@@ -274,6 +277,9 @@ function tdHome(){
     topMes = "TOUCHDOWN " + [homeRB];
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 6;
+    downRB = 5;
+    distRB = 0;
+    ballOnRB = 3;
     who = "home";
     scoreBlink(5);
     rebuild();
@@ -285,6 +291,9 @@ function fgAway(){
     topMes = "FIELD GOAL IS GOOD";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 3;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(3);
     rebuild();
 }
@@ -295,6 +304,9 @@ function fgHome(){
     topMes = "FIELD GOAL IS GOOD";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 3;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(3);
     rebuild();
 }
@@ -304,6 +316,9 @@ function twoAway(){
     who = "away";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 2;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(5);
     rebuild();
 }
@@ -313,6 +328,9 @@ function twoHome(){
     who = "home";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 2;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(5);
     rebuild();
 }
@@ -322,6 +340,9 @@ function oneAway(){
     topMes = "EXTRA POINT IS GOOD";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 1;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(1);
     rebuild();
 }
@@ -331,6 +352,9 @@ function oneHome(){
     topMes = "EXTRA POINT IS GOOD";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 1;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(1);
     rebuild();
 }
