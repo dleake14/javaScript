@@ -176,13 +176,17 @@ window.addEventListener("keydown", function(event) {
     }
 }, true);
 
-/*function updateBtn(){
-    let reply;
-    if (isNaN(ballOnRB) === true || ballOnRB <= -50 || ballOnRB >=  50){reply = "Er";}
+function updateBtn(dat, con){
+    let data = dat;
+    let cont = con;
 
 
-    return reply;
-}*/
+
+
+    /*   let reply;
+       if (isNaN(ballOnRB) === true || ballOnRB <= -50 || ballOnRB >=  50){reply = "Er";}
+    return reply;*/
+}
 
 
 function scoreBlink(to){
