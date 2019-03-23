@@ -229,27 +229,8 @@ function playBtn() {
     downRB = down;
     clear();
     rebuild();
-
     return gain;
 
-    /*if (document.getElementById("ballOnInp").value === "" && document.getElementById("downInp").value === "") {
-        return "Update Error";
-    }
-    prevDaD.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
-    if (document.getElementById("downInp").value !== ""){
-        downRB = document.getElementById("downInp").value;}
-    if (document.getElementById("distInp").value !== ""){
-        distRB = document.getElementById("distInp").value;}
-    if (document.getElementById("ballOnInp").value !== ""){
-        prevBO.textContent = ballOnRB;
-        ballOnRB = document.getElementById("ballOnInp").value;}*/
-    /*    if (cont === "bo"){
-            ballSpot(parseInt(data), parseInt(prevBO))
-
-        }*/
-    /*   let reply;
-       if (isNaN(ballOnRB) === true || ballOnRB <= -50 || ballOnRB >=  50){reply = "Er";}
-    return reply;*/
 }
 
 
