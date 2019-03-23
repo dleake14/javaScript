@@ -68,8 +68,8 @@ let topper = document.getElementById('topper');
 let ballOnDis = document.getElementById('ballOnDis');
 let dAndDDis = document.getElementById('dAndDDis');
 let possDis = document.getElementById('possDis');
-let prevDaD = document.getElementById('prevDaD');
-let prevBO = document.getElementById('prevBO')
+let prevDaDDis = document.getElementById('prevDaD');
+let prevBODis = document.getElementById('prevBO')
 let topMes = "INIT";
 let home = "home";
 let qtrTxt = "QTR";
@@ -91,6 +91,7 @@ let possRB = "|";
 let downRB = "|";
 let distRB  = "|"
 let ballOnRB = "-|";
+let prevBO = 0;
 build();
 
 function build(){
@@ -104,8 +105,8 @@ function build(){
     dAndDDis.textContent = padder(dAndDisp(parseInt(down), parseInt(dist)));
     possDis.textContent = midPad(poss);
     ballOnDis.textContent = padder(ballOn);
-    prevBO.textContent = "-"
     prevDaD.textContent = "Init & Init";
+    prevBODis.textContent = "-";
 }
 
 function clear(){
@@ -141,10 +142,12 @@ function rebuild() {
     dAndDDis.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
     possDis.textContent = midPad(possRB);
     ballOnDis.textContent = padder(ballOnRB);
+    prevDaDDis.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
+    prevBODis.textContent = prevBO;
+
 }
 
 function buttonRebuild(){
-    prevDaD.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
     if (document.getElementById("aNameRB").value !== ""){
         awayRB = document.getElementById("aNameRB").value;}
     if (document.getElementById("hNameRB").value !== ""){
@@ -162,7 +165,7 @@ function buttonRebuild(){
     if (document.getElementById("distInp").value !== ""){
         distRB = document.getElementById("distInp").value;}
     if (document.getElementById("ballOnInp").value !== ""){
-        prevBO.textContent = ballOnRB;
+        prevBO = ballOnRB;
         ballOnRB = document.getElementById("ballOnInp").value;}
     clear();
     rebuild()
@@ -176,13 +179,49 @@ window.addEventListener("keydown", function(event) {
     }
 }, true);
 
-function updateBtn(dat, con){
-    let data = dat;
-    let cont = con;
 
+function newBallSpot(prevBO, ballOnRB){
+    let ret =0;
+    let prev = parseInt(prevBO);
+    let now = parseInt(ballOnRB);
 
+    //Prev is on - side of field --- Now is on - side of field
+    if (prev <= -1 && now <= -1){
+        prev = Math.abs(prev);
+        now = Math.abs(now);
+        ret = (now - prev);
+        return ret;
+    }
 
+}
 
+function playBtn(){
+    let gain = 0;
+    if (document.getElementById("ballOnInp").value !== ""){
+        prevBO = ballOnRB;
+        ballOnRB = document.getElementById("ballOnInp").value;
+        gain = newBallSpot(prevBO, ballOnRB);
+    }
+    clear();
+    rebuild();
+
+    return gain;
+
+    /*if (document.getElementById("ballOnInp").value === "" && document.getElementById("downInp").value === "") {
+        return "Update Error";
+    }
+    prevDaD.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
+    if (document.getElementById("downInp").value !== ""){
+        downRB = document.getElementById("downInp").value;}
+    if (document.getElementById("distInp").value !== ""){
+        distRB = document.getElementById("distInp").value;}
+    if (document.getElementById("ballOnInp").value !== ""){
+        prevBO.textContent = ballOnRB;
+        ballOnRB = document.getElementById("ballOnInp").value;}*/
+    /*    if (cont === "bo"){
+            ballSpot(parseInt(data), parseInt(prevBO))
+
+        }*/
     /*   let reply;
        if (isNaN(ballOnRB) === true || ballOnRB <= -50 || ballOnRB >=  50){reply = "Er";}
     return reply;*/
