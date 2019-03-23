@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2872f1a6-7068-48f2-9cee-f39d28758916" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,7 +26,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="185">
+                <state relative-caret-position="310">
                   <caret line="31" column="87" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
                   <folding>
                     <element signature="n#style#0;n#input#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -55,8 +53,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="287">
-                  <caret line="207" column="14" lean-forward="true" selection-start-line="207" selection-start-column="14" selection-end-line="207" selection-end-column="14" />
+                <state relative-caret-position="225">
+                  <caret line="226" column="5" lean-forward="true" selection-start-line="226" selection-start-column="5" selection-end-line="226" selection-end-column="5" />
                   <folding>
                     <element signature="e#5911#6538#0" />
                     <element signature="e#5913#5998#0" />
@@ -252,12 +250,12 @@
       <workItem from="1553276673539" duration="9640000" />
       <workItem from="1553289119688" duration="42000" />
       <workItem from="1553300903148" duration="1000" />
-      <workItem from="1553349847847" duration="4687000" />
+      <workItem from="1553349847847" duration="15930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87973000" />
+    <option name="totallyTimeSpent" value="99216000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -278,13 +276,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32890856" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32842416" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49966735" visible="true" weight="0.3353028" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49966735" visible="true" weight="0.40472674" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298969" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32890856" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.19587629" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.19497785" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033265" side_tool="true" weight="0.29307806" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -297,6 +295,38 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/main.js</url>
+          <line>225</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/main.js</url>
+          <line>219</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/main.js</url>
+          <line>209</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/main.js</url>
+          <line>211</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/main.js</url>
+          <line>213</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception">
           <properties />
@@ -306,6 +336,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>down &lt; 4</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>gain &gt;= dist</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>let ret = (now - prev);</expression-string>
         <language-id>JavaScript</language-id>
@@ -338,16 +378,6 @@
       </expression>
       <expression>
         <expression-string>let prev = prevBO;</expression-string>
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Math.abs(prev)</expression-string>
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>prevBO.textContent</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -397,9 +427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="http://localhost:63342/js-EX01/main.js">
-      <provider selected="true" editor-type-id="httpFileEditor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/default.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -409,7 +436,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
+        <state relative-caret-position="310">
           <caret line="31" column="87" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
           <folding>
             <element signature="n#style#0;n#input#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -428,10 +455,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="http://localhost:63342/js-EX01/main.js">
+      <provider selected="true" editor-type-id="httpFileEditor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="207" column="14" lean-forward="true" selection-start-line="207" selection-start-column="14" selection-end-line="207" selection-end-column="14" />
+        <state relative-caret-position="225">
+          <caret line="226" column="5" lean-forward="true" selection-start-line="226" selection-start-column="5" selection-end-line="226" selection-end-column="5" />
           <folding>
             <element signature="e#5911#6538#0" />
             <element signature="e#5913#5998#0" />

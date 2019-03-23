@@ -45,15 +45,11 @@ function downer(down) {
     }
 }
 
-function dister(down, dist, gtg, fad){
-    if (Number.isNaN(dist) === true || down === 0 || down >= 5){return "";}
-    if (fad === true){return 10;}
-    return dist;
-}
-
 function dAndDisp (down, dist){
-    let dadDisp = downer(down) + dister(down, dist);
-    return dadDisp;
+    var dadDisp;
+    if (dist === -1 || down === 0 || down >= 5) {return dadDisp = downer(down);}
+    if (dist === 0) {return dadDisp = downer(down) + "GOAL";}
+    else {return dadDisp = downer(down) + dist;}
 }
 
 
@@ -85,13 +81,15 @@ let qtrRB = "-";
 let who = "";
 let poss = "-->";
 let down = 0;
-let dist = 0;
+let dist = -1;
 let ballOn = -40;
 let possRB = "|";
 let downRB = "|";
 let distRB  = "|"
 let ballOnRB = "-|";
 let prevBO = 0;
+let prevDown = 0;
+let prevDist = 0;
 build();
 
 function build(){
@@ -142,7 +140,7 @@ function rebuild() {
     dAndDDis.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
     possDis.textContent = midPad(possRB);
     ballOnDis.textContent = padder(ballOnRB);
-    prevDaDDis.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
+    prevDaDDis.textContent = padder(dAndDisp(parseInt(prevDown), parseInt(prevDist)));
     prevBODis.textContent = prevBO;
 
 }
@@ -161,11 +159,13 @@ function buttonRebuild(){
     if (document.getElementById("topMes").value !== ""){
         topMes = document.getElementById("topMes").value;}
     if (document.getElementById("downInp").value !== ""){
+        prevDown = parseInt(downRB);
         downRB = document.getElementById("downInp").value;}
     if (document.getElementById("distInp").value !== ""){
+        prevDist = parseInt(distRB);
         distRB = document.getElementById("distInp").value;}
     if (document.getElementById("ballOnInp").value !== ""){
-        prevBO = ballOnRB;
+        prevBO = parseInt(ballOnRB);
         ballOnRB = document.getElementById("ballOnInp").value;}
     clear();
     rebuild()
@@ -180,28 +180,53 @@ window.addEventListener("keydown", function(event) {
 }, true);
 
 
-function newBallSpot(prevBO, ballOnRB){
-    let ret =0;
+function gainLoss(prevBO, ballOnRB){
+    let gL =0;
     let prev = parseInt(prevBO);
     let now = parseInt(ballOnRB);
 
-    //Prev is on - side of field --- Now is on - side of field
-    if (prev <= -1 && now <= -1){
-        prev = Math.abs(prev);
-        now = Math.abs(now);
-        ret = (now - prev);
-        return ret;
+    //prev is on - side of field
+    if (prev <= -1){
+        prev = (50 - Math.abs(prev)) + 50;
     }
-
+    //now is on - side of field
+    if (now <= -1){
+        now = (50 - Math.abs(now)) + 50;
+    }
+    gL = prev - now;
+    return gL;
 }
 
-function playBtn(){
+function playBtn() {
     let gain = 0;
-    if (document.getElementById("ballOnInp").value !== ""){
-        prevBO = ballOnRB;
-        ballOnRB = document.getElementById("ballOnInp").value;
-        gain = newBallSpot(prevBO, ballOnRB);
+    if (document.getElementById("ballOnInp").value !== "") {
+        prevBO = parseInt(ballOnRB);
+        parseInt(ballOnRB = document.getElementById("ballOnInp").value);
+        prevDown = parseInt(downRB);
+        prevDist = parseInt(distRB);
+        gain = gainLoss(prevBO, ballOnRB);
+        //Gain gives you a first down
+        if (gain >= prevDist && prevDist !== 0) {
+            down = 1;
+            if (ballOnRB <= 10 && ballOnRB >= 1) {
+                dist = 0;
+            } else {
+                dist = 10;
+            }
+        }
+        //Gain does NOT give first down
+        else if (prevDown < 4) {
+            down = (prevDown + 1);
+            if (prevDist === 0)
+                {
+                    dist = prevDist;
+                }
+            else {dist = prevDist - gain;}
+        }
+        else {down = 0; dist=10;}
     }
+    distRB = dist;
+    downRB = down;
     clear();
     rebuild();
 
