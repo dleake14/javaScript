@@ -45,15 +45,11 @@ function downer(down) {
     }
 }
 
-function dister(down, dist, gtg, fad){
-    if (Number.isNaN(dist) === true || down === 0 || down >= 5){return "";}
-    if (fad === true){return 10;}
-    return dist;
-}
-
 function dAndDisp (down, dist){
-    let dadDisp = downer(down) + dister(down, dist);
-    return dadDisp;
+    var dadDisp;
+    if (dist === -1 || down === 0 || down >= 5) {return dadDisp = downer(down);}
+    if (dist === 0) {return dadDisp = downer(down) + "GOAL";}
+    else {return dadDisp = downer(down) + dist;}
 }
 
 
@@ -68,8 +64,8 @@ let topper = document.getElementById('topper');
 let ballOnDis = document.getElementById('ballOnDis');
 let dAndDDis = document.getElementById('dAndDDis');
 let possDis = document.getElementById('possDis');
-let prevDaD = document.getElementById('prevDaD');
-let prevBO = document.getElementById('prevBO')
+let prevDaDDis = document.getElementById('prevDaD');
+let prevBODis = document.getElementById('prevBO')
 let topMes = "INIT";
 let home = "home";
 let qtrTxt = "QTR";
@@ -85,12 +81,15 @@ let qtrRB = "-";
 let who = "";
 let poss = "-->";
 let down = 0;
-let dist = 0;
+let dist = -1;
 let ballOn = -40;
 let possRB = "|";
-let downRB = "|";
-let distRB  = "|"
-let ballOnRB = "-|";
+let downRB = 0;
+let distRB  = -1
+let ballOnRB = -40;
+let prevBO = -40;
+let prevDown = 0;
+let prevDist = -1;
 build();
 
 function build(){
@@ -104,8 +103,8 @@ function build(){
     dAndDDis.textContent = padder(dAndDisp(parseInt(down), parseInt(dist)));
     possDis.textContent = midPad(poss);
     ballOnDis.textContent = padder(ballOn);
-    prevBO.textContent = "-"
     prevDaD.textContent = "Init & Init";
+    prevBODis.textContent = "-";
 }
 
 function clear(){
@@ -141,10 +140,12 @@ function rebuild() {
     dAndDDis.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
     possDis.textContent = midPad(possRB);
     ballOnDis.textContent = padder(ballOnRB);
+    prevDaDDis.textContent = padder(dAndDisp(parseInt(prevDown), parseInt(prevDist)));
+    prevBODis.textContent = prevBO;
+
 }
 
 function buttonRebuild(){
-    prevDaD.textContent = padder(dAndDisp(parseInt(downRB), parseInt(distRB)));
     if (document.getElementById("aNameRB").value !== ""){
         awayRB = document.getElementById("aNameRB").value;}
     if (document.getElementById("hNameRB").value !== ""){
@@ -158,11 +159,13 @@ function buttonRebuild(){
     if (document.getElementById("topMes").value !== ""){
         topMes = document.getElementById("topMes").value;}
     if (document.getElementById("downInp").value !== ""){
+        prevDown = parseInt(downRB);
         downRB = document.getElementById("downInp").value;}
     if (document.getElementById("distInp").value !== ""){
+        prevDist = parseInt(distRB);
         distRB = document.getElementById("distInp").value;}
     if (document.getElementById("ballOnInp").value !== ""){
-        prevBO.textContent = ballOnRB;
+        prevBO = parseInt(ballOnRB);
         ballOnRB = document.getElementById("ballOnInp").value;}
     clear();
     rebuild()
@@ -176,13 +179,59 @@ window.addEventListener("keydown", function(event) {
     }
 }, true);
 
-/*function updateBtn(){
-    let reply;
-    if (isNaN(ballOnRB) === true || ballOnRB <= -50 || ballOnRB >=  50){reply = "Er";}
 
+function gainLoss(prevBO, ballOnRB){
+    let gL =0;
+    let prev = parseInt(prevBO);
+    let now = parseInt(ballOnRB);
 
-    return reply;
-}*/
+    //prev is on - side of field
+    if (prev <= -1){
+        prev = (50 - Math.abs(prev)) + 50;
+    }
+    //now is on - side of field
+    if (now <= -1){
+        now = (50 - Math.abs(now)) + 50;
+    }
+    gL = prev - now;
+    return gL;
+}
+
+function playBtn() {
+    let gain = 0;
+    if (document.getElementById("ballOnInp").value !== "") {
+        prevBO = parseInt(ballOnRB);
+        parseInt(ballOnRB = document.getElementById("ballOnInp").value);
+        prevDown = parseInt(downRB);
+        prevDist = parseInt(distRB);
+        gain = gainLoss(prevBO, ballOnRB);
+        //Gain gives you a first down
+        if (gain >= prevDist && prevDist !== 0) {
+            down = 1;
+            if (ballOnRB <= 10 && ballOnRB >= 1) {
+                dist = 0;
+            } else {
+                dist = 10;
+            }
+        }
+        //Gain does NOT give first down
+        else if (prevDown < 4) {
+            down = (prevDown + 1);
+            if (prevDist === 0)
+                {
+                    dist = prevDist;
+                }
+            else {dist = prevDist - gain;}
+        }
+        else {down = 0; dist=10;}
+    }
+    distRB = dist;
+    downRB = down;
+    clear();
+    rebuild();
+    return gain;
+
+}
 
 
 function scoreBlink(to){
@@ -215,6 +264,9 @@ function tdAway(){
     who = "away";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 6;
+    downRB = 5;
+    distRB = 0;
+    ballOnRB = 3;
     who = "away";
     scoreBlink(5);
     rebuild();
@@ -225,6 +277,9 @@ function tdHome(){
     topMes = "TOUCHDOWN " + [homeRB];
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 6;
+    downRB = 5;
+    distRB = 0;
+    ballOnRB = 3;
     who = "home";
     scoreBlink(5);
     rebuild();
@@ -236,6 +291,9 @@ function fgAway(){
     topMes = "FIELD GOAL IS GOOD";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 3;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(3);
     rebuild();
 }
@@ -246,6 +304,9 @@ function fgHome(){
     topMes = "FIELD GOAL IS GOOD";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 3;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(3);
     rebuild();
 }
@@ -255,6 +316,9 @@ function twoAway(){
     who = "away";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 2;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(5);
     rebuild();
 }
@@ -264,6 +328,9 @@ function twoHome(){
     who = "home";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 2;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(5);
     rebuild();
 }
@@ -273,6 +340,9 @@ function oneAway(){
     topMes = "EXTRA POINT IS GOOD";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 1;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(1);
     rebuild();
 }
@@ -282,6 +352,9 @@ function oneHome(){
     topMes = "EXTRA POINT IS GOOD";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 1;
+    downRB = 0;
+    distRB = 0;
+    ballOnRB = -40;
     scoreBlink(1);
     rebuild();
 }
