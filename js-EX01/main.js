@@ -79,18 +79,20 @@ let hScoreRB = 0;
 let aScoreRB = 0;
 let qtrRB = "-";
 let who = "";
-let poss = "-->";
+let poss = "<->";
 let down = 0;
 let dist = -1;
 let ballOn = -40;
-let possRB = "|";
+let possRB = "<>";
 let downRB = 0;
 let distRB  = -1
 let ballOnRB = -40;
 let prevBO = -99;
 let prevDown = 0;
 let prevDist = -1;
+let prevPoss = "";
 build();
+
 
 function build(){
     topper.textContent = topPad(topMes);
@@ -103,7 +105,7 @@ function build(){
     dAndDDis.textContent = padder(dAndDisp(parseInt(down), parseInt(dist)));
     possDis.textContent = midPad(poss);
     ballOnDis.textContent = padder(ballOn);
-    prevDaD.textContent = "Init & Init";
+    prevDaDDis.textContent = "Init & Init";
     prevBODis.textContent = "-";
 }
 
@@ -167,6 +169,7 @@ function buttonRebuild(){
     if (document.getElementById("ballOnInp").value !== ""){
         prevBO = parseInt(ballOnRB);
         ballOnRB = document.getElementById("ballOnInp").value;}
+    possCheck();
     clear();
     rebuild()
 }
@@ -178,6 +181,31 @@ window.addEventListener("keydown", function(event) {
         playBtn();
     }
 }, true);
+
+function possCheck(){
+    if (document.getElementById("possA").checked === true){poss = "away"}
+        else if (document.getElementById("possH").checked === true){poss = "home";}
+        else {poss = "<->";}
+        possAssign(poss);
+}
+
+function possAssign (poss){
+    if (poss === "away"){
+        document.getElementById("possA").checked = true;
+        document.getElementById("possH").checked = false;
+        possRB = "<--";
+    }
+    else if (poss === "home"){
+        document.getElementById("possA").checked = false;
+        document.getElementById("possH").checked = true;
+        possRB = "-->";
+    }
+    else {
+        document.getElementById("possA").checked = false;
+        document.getElementById("possH").checked = false;
+        possRB = "<->";
+    }
+}
 
 
 function gainLoss(prevBO, ballOnRB){
@@ -198,6 +226,7 @@ function gainLoss(prevBO, ballOnRB){
 }
 
 function playBtn() {
+    possCheck();
     let gain = 0;
     if (document.getElementById("ballOnInp").value !== "") {
         prevBO = parseInt(ballOnRB);
@@ -206,7 +235,7 @@ function playBtn() {
         prevDist = parseInt(distRB);
         gain = gainLoss(prevBO, ballOnRB);
         //Gain gives you a first down
-        if (gain >= prevDist && prevDist !== 0 || prevDown === 0) {
+        if (gain >= prevDist && prevDist !== 0 || prevDown === 0 || prevPoss !== possCheck()) {
             down = 1;
             //Goal to go check
             if (ballOnRB <= 10 && ballOnRB >= 1) {
@@ -228,6 +257,7 @@ function playBtn() {
     }
     distRB = dist;
     downRB = down;
+    prevPoss = possCheck();
     clear();
     rebuild();
     return gain;
@@ -260,6 +290,7 @@ function forReset (){
 }
 
 function tdAway(){
+    possAssign("away");
     topMes = "";
     topMes = "TOUCHDOWN " + [awayRB];
     who = "away";
@@ -274,6 +305,7 @@ function tdAway(){
 }
 
 function tdHome(){
+    possAssign("home");
     topMes = "";
     topMes = "TOUCHDOWN " + [homeRB];
     hScoreRB = parseInt(hScoreRB);
@@ -287,6 +319,7 @@ function tdHome(){
 }
 
 function fgAway(){
+    possAssign("away");
     topMes = "";
     who = "away";
     topMes = "FIELD GOAL IS GOOD";
@@ -300,6 +333,7 @@ function fgAway(){
 }
 
 function fgHome(){
+    possAssign("home");
     topMes = "";
     who = "home";
     topMes = "FIELD GOAL IS GOOD";
@@ -313,6 +347,7 @@ function fgHome(){
 }
 
 function twoAway(){
+    possAssign("away");
     topMes = "";
     who = "away";
     aScoreRB = parseInt(aScoreRB);
@@ -325,6 +360,7 @@ function twoAway(){
 }
 
 function twoHome(){
+    possAssign("home");
     topMes = "";
     who = "home";
     hScoreRB = parseInt(hScoreRB);
@@ -337,6 +373,7 @@ function twoHome(){
 }
 
 function oneAway(){
+    possAssign("away");
     topMes = "";
     topMes = "EXTRA POINT IS GOOD";
     aScoreRB = parseInt(aScoreRB);
@@ -349,6 +386,7 @@ function oneAway(){
 }
 
 function oneHome(){
+    possAssign("home");
     topMes = "";
     topMes = "EXTRA POINT IS GOOD";
     hScoreRB = parseInt(hScoreRB);
