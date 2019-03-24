@@ -87,7 +87,7 @@ let possRB = "|";
 let downRB = 0;
 let distRB  = -1
 let ballOnRB = -40;
-let prevBO = -40;
+let prevBO = -99;
 let prevDown = 0;
 let prevDist = -1;
 build();
@@ -175,7 +175,7 @@ window.addEventListener("keydown", function(event) {
     let str =event.key;
     if (str === 'Enter'){
         topMes ="";
-        buttonRebuild();
+        playBtn();
     }
 }, true);
 
@@ -206,8 +206,9 @@ function playBtn() {
         prevDist = parseInt(distRB);
         gain = gainLoss(prevBO, ballOnRB);
         //Gain gives you a first down
-        if (gain >= prevDist && prevDist !== 0) {
+        if (gain >= prevDist && prevDist !== 0 || prevDown === 0) {
             down = 1;
+            //Goal to go check
             if (ballOnRB <= 10 && ballOnRB >= 1) {
                 dist = 0;
             } else {
