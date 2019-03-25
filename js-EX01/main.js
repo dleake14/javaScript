@@ -235,7 +235,7 @@ function playBtn() {
         prevDist = parseInt(distRB);
         gain = gainLoss(prevBO, ballOnRB);
         //Gain gives you a first down
-        if (gain >= prevDist && prevDist !== 0 || prevDown === 0 || prevPoss !== possCheck()) {
+        if (gain >= prevDist && prevDist !== 0 || prevDown === 0) {
             down = 1;
             //Goal to go check
             if (ballOnRB <= 10 && ballOnRB >= 1) {
@@ -257,7 +257,6 @@ function playBtn() {
     }
     distRB = dist;
     downRB = down;
-    prevPoss = possCheck();
     clear();
     rebuild();
     return gain;
