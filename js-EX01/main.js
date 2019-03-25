@@ -94,21 +94,6 @@ let prevPoss = "";
 build();
 
 
-function build(){
-    topper.textContent = topPad(topMes);
-    awayDis.textContent = padder(away);
-    qtrTitle.textContent = midPad(qtrTxt);
-    homeDis.textContent = padder(home);
-    aScoreDis.textContent = padder(aScore);
-    qtrDis.textContent = midPad(qtr);
-    hScoreDis.textContent = padder(hScore);
-    dAndDDis.textContent = padder(dAndDisp(parseInt(down), parseInt(dist)));
-    possDis.textContent = midPad(poss);
-    ballOnDis.textContent = padder(ballOn);
-    prevDaDDis.textContent = "Init & Init";
-    prevBODis.textContent = "-";
-}
-
 function clear(){
     topper.textContent = "";
     awayDis.textContent = "";
@@ -131,7 +116,7 @@ function clear(){
     document.getElementById("ballOnInp").value ="";
 }
 
-function rebuild() {
+function build() {
     topper.textContent = topPad(topMes);
     awayDis.textContent = padder(awayRB);
     qtrTitle.textContent = midPad(qtrTxt);
@@ -171,7 +156,7 @@ function buttonRebuild(){
         ballOnRB = document.getElementById("ballOnInp").value;}
     possCheck();
     clear();
-    rebuild()
+    build()
 }
 
 window.addEventListener("keydown", function(event) {
@@ -258,7 +243,7 @@ function playBtn() {
     distRB = dist;
     downRB = down;
     clear();
-    rebuild();
+    build();
     return gain;
 
 }
@@ -284,7 +269,7 @@ function forReset (){
     document.getElementById('hScoreDis').setAttribute("class","mainLines");
     setTimeout(function() {
         topMes = "";
-        rebuild();
+        build();
     }, 3000)
 }
 
@@ -300,7 +285,7 @@ function tdAway(){
     ballOnRB = 3;
     who = "away";
     scoreBlink(5);
-    rebuild();
+    build();
 }
 
 function tdHome(){
@@ -314,7 +299,7 @@ function tdHome(){
     ballOnRB = 3;
     who = "home";
     scoreBlink(5);
-    rebuild();
+    build();
 }
 
 function fgAway(){
@@ -328,7 +313,7 @@ function fgAway(){
     distRB = 0;
     ballOnRB = -40;
     scoreBlink(3);
-    rebuild();
+    build();
 }
 
 function fgHome(){
@@ -342,7 +327,7 @@ function fgHome(){
     distRB = 0;
     ballOnRB = -40;
     scoreBlink(3);
-    rebuild();
+    build();
 }
 
 function twoAway(){
@@ -355,7 +340,7 @@ function twoAway(){
     distRB = 0;
     ballOnRB = -40;
     scoreBlink(5);
-    rebuild();
+    build();
 }
 
 function twoHome(){
@@ -368,7 +353,7 @@ function twoHome(){
     distRB = 0;
     ballOnRB = -40;
     scoreBlink(5);
-    rebuild();
+    build();
 }
 
 function oneAway(){
@@ -381,7 +366,7 @@ function oneAway(){
     distRB = 0;
     ballOnRB = -40;
     scoreBlink(1);
-    rebuild();
+    build();
 }
 
 function oneHome(){
@@ -394,5 +379,5 @@ function oneHome(){
     distRB = 0;
     ballOnRB = -40;
     scoreBlink(1);
-    rebuild();
+    build();
 }
