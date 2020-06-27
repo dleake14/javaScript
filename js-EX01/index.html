@@ -9,19 +9,20 @@
 
 <body>
     <div id="output"></div>
-    <div id="topper" class="wrapper"></div>
-    <br>
-    <div id="awayDis" class="wrapper"></div>
-    <div id="qtrTitle" class="wrapper"></div>
-    <div id="homeDis" class="wrapper"></div>
-    <br>
-    <div id="aScoreDis" class="wrapper"></div>
-    <div id="qtrDis" class="wrapper"></div>
-    <div id="hScoreDis" class="wrapper"></div>
-    <br>
-    <div id="dAndDDis" class="wrapper"></div>
-    <div id="possDis" class="wrapper"></div>
-    <div id="ballOnDis" class="wrapper"></div>
+    <div class="topWrapper">
+        <div id="topper" class="topWrapper"></div>
+    </div>
+    <div class="wrapper">
+        <div id="awayDis" class="wrapper"></div>
+        <div id="qtrTitle" class="wrapper"></div>
+        <div id="homeDis" class="wrapper"></div>
+        <div id="aScoreDis" class="wrapper"></div>
+        <div id="qtrDis" class="wrapper"></div>
+        <div id="hScoreDis" class="wrapper"></div>
+        <div id="dAndDDis" class="wrapper"></div>
+        <div id="possDis" class="wrapper"></div>
+        <div id="ballOnDis" class="wrapper"></div>
+    </div>
     <br><br>
     <input type="radio" style="margin-left: 90px;" name="poss" id="possA" value="away">Away<input type="radio" name="poss" id="possH" value="home">Home<br>
     <input id="tdAway" type="button" value="Away +6" onclick="tdAway()"><input id="fgAway" type="button" value="Away +3" onclick="fgAway()">
@@ -46,7 +47,7 @@
 
     <br>
     <input id="qtrRB" style="margin-left:20px;" type="text" placeholder="QTR" size="1" maxlength="4">
-    <input id="topMes" style="margin-left:35px;" type="text" placeholder="Message" size="24" maxlength="25">
+    <input id="topMes" style="margin-left:35px;" type="text" placeholder="Message" size="36" maxlength="36">
     <br>
     <input id="rebuildButton" style="margin-left:125px; padding: 1px;" type="button" value="Rebuild" onclick="buttonRebuild()">
     <script src="main.js"></script>

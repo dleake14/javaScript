@@ -8,17 +8,28 @@ body {
     background: rgb(0, 0, 0);
 }
 
-.wrapper {
+.topWrapper {
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    text-align: center;
+    margin: auto;
+    grid-template-columns: 45%;
 }
 
 div {
-    font-size: 150%;
+    font-size: 100%;
     white-space: pre-wrap;
     /* display: inline-block; */
-    font-weight: bolder;
+    font-weight: bold;
+    text-align: center;
     text-transform: uppercase;
+}
+
+.wrapper {
+    display: grid;
+    text-align: center;
+    white-space: nowrap;
+    grid-template-columns: 15% 15% 15%;
+    margin: 0 auto;
 }
 
 .teamHL {
@@ -32,7 +43,6 @@ div {
     color: yellow;
     animation: blinkingText infinite;
     animation-duration: 1s;
-    display: inline-block;
 }
 
 @keyframes blinkingText {

@@ -1,37 +1,17 @@
 function padder(str) {
     str = str.toString();
-    let pstart = 0,
-        pend = 0;
-    let odder = 0;
-    if ((str.length % 2) === 1) { odder = 1; }
-    pstart = (str.length) + ((lineLength / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
-    pend = lineLength;
-    let out = str.padStart([pstart]).padEnd([pend]);
-    return out;
+    return str;
 }
 
 
 function midPad(str) {
     str = str.toString();
-    let pstart = 0,
-        pend = 0;
-    let odder = 0;
-    if ((str.length % 2) === 1) { odder = 1; }
-    pstart = (Math.floor((lineLength / 2))) + (Math.floor((parseInt(str.length) / 2))) + odder;
-    pend = lineLength;
-    lineLength = 12;
-    return str.padStart([pstart]).padEnd([pend]);
+    return str;
 }
 
 function topPad(str) {
     str = str.toString();
-    let pstart = 0,
-        pend = 0;
-    let odder = 0;
-    if ((str.length % 2) === 1) { odder = 1; }
-    pstart = (str.length) + ((((lineLength / 2) + 5) / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
-    pend = lineLength;
-    return str.padStart([pstart]).padEnd([pend]);
+    return str;
 }
 
 function downer(down) {
@@ -75,14 +55,14 @@ let dAndDDis = document.getElementById('dAndDDis');
 let possDis = document.getElementById('possDis');
 let prevDaDDis = document.getElementById('prevDaD');
 let prevBODis = document.getElementById('prevBO')
-let topMes = "0987654321X1234567890";
+let topMes = "init";
 let home = "home";
 let qtrTxt = "QTR";
 let away = "away";
 let hScore = "-";
 let aScore = "-";
 let qtr = "-";
-let homeRB = "home";
+let homeRB = "HOME TEAM";
 let awayRB = "away";
 let hScoreRB = 0;
 let aScoreRB = 0;
@@ -119,7 +99,6 @@ function clear() {
     document.getElementById("aScoreRB").value = "";
     document.getElementById("hScoreRB").value = "";
     document.getElementById("qtrRB").value = "";
-    document.getElementById("topMes").value = "";
     document.getElementById("downInp").value = "";
     document.getElementById("distInp").value = "";
     document.getElementById("ballOnInp").value = "";
@@ -179,11 +158,15 @@ function buttonRebuild() {
 
 window.addEventListener("keydown", function(event) {
     let str = event.key;
+
+    if (event.ctrlKey && event.key === 'Enter') {
+        buttonRebuild();
+    }
     if (str === 'Enter') {
-        topMes = "";
         playBtn();
     }
 }, true);
+
 
 function possCheck() {
     if (document.getElementById("possA").checked === true) { poss = "away" } else if (document.getElementById("possH").checked === true) { poss = "home"; } else { poss = "<->"; }
@@ -267,9 +250,11 @@ function scoreBlink(to) {
     if (who === "away") {
         document.getElementById('awayDis').setAttribute("class", "teamHL");
         document.getElementById('aScoreDis').setAttribute("class", "blinking");
+        document.getElementById('topper').setAttribute("class", "blinking");
     } else {
         document.getElementById('homeDis').setAttribute("class", "teamHL");
         document.getElementById('hScoreDis').setAttribute("class", "blinking");
+        document.getElementById('topper').setAttribute("class", "blinking");
     }
     let toPass = parseInt(to) * 1000;
     setTimeout(forReset, toPass);
