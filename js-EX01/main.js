@@ -55,14 +55,14 @@ let dAndDDis = document.getElementById('dAndDDis');
 let possDis = document.getElementById('possDis');
 let prevDaDDis = document.getElementById('prevDaD');
 let prevBODis = document.getElementById('prevBO')
-let topMes = "init";
+let topMes = "BOOT";
 let home = "home";
 let qtrTxt = "QTR";
 let away = "away";
 let hScore = "-";
 let aScore = "-";
 let qtr = "-";
-let homeRB = "HOME TEAM";
+let homeRB = "home";
 let awayRB = "away";
 let hScoreRB = 0;
 let aScoreRB = 0;
@@ -80,6 +80,7 @@ let prevBO = -99;
 let prevDown = 0;
 let prevDist = -1;
 let prevPoss = "";
+let messHold = "";
 build();
 
 
@@ -158,9 +159,9 @@ function buttonRebuild() {
 
 window.addEventListener("keydown", function(event) {
     let str = event.key;
-
-    if (event.ctrlKey && event.key === 'Enter') {
+    if (event.ctrlKey && str === 'Enter') {
         buttonRebuild();
+        str = '';
     }
     if (str === 'Enter') {
         playBtn();
@@ -261,19 +262,20 @@ function scoreBlink(to) {
 }
 
 function forReset() {
-    document.getElementById('awayDis').setAttribute("class", "mainLines");
-    document.getElementById('aScoreDis').setAttribute("class", "mainLines");
-    document.getElementById('homeDis').setAttribute("class", "mainLines");
-    document.getElementById('hScoreDis').setAttribute("class", "mainLines");
+    document.getElementById('awayDis').setAttribute("class", "body");
+    document.getElementById('aScoreDis').setAttribute("class", "body");
+    document.getElementById('homeDis').setAttribute("class", "body");
+    document.getElementById('hScoreDis').setAttribute("class", "body");
+    document.getElementById('topper').setAttribute("class", "body");
     setTimeout(function() {
-        topMes = "";
+        topMes = messHold;
         build();
     }, 3000)
 }
 
 function tdAway() {
     possAssign("away");
-    topMes = "";
+    messHold = topMes;
     topMes = "TOUCHDOWN " + [awayRB];
     who = "away";
     aScoreRB = parseInt(aScoreRB);
@@ -288,7 +290,7 @@ function tdAway() {
 
 function tdHome() {
     possAssign("home");
-    topMes = "";
+    messHold = topMes;
     topMes = "TOUCHDOWN " + [homeRB];
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 6;
@@ -302,7 +304,7 @@ function tdHome() {
 
 function fgAway() {
     possAssign("away");
-    topMes = "";
+    messHold = topMes;
     who = "away";
     topMes = "FIELD GOAL IS GOOD";
     aScoreRB = parseInt(aScoreRB);
@@ -316,7 +318,7 @@ function fgAway() {
 
 function fgHome() {
     possAssign("home");
-    topMes = "";
+    messHold = topMes;
     who = "home";
     topMes = "FIELD GOAL IS GOOD";
     hScoreRB = parseInt(hScoreRB);
@@ -330,7 +332,7 @@ function fgHome() {
 
 function twoAway() {
     possAssign("away");
-    topMes = "";
+    messHold = topMes;
     who = "away";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 2;
@@ -343,7 +345,7 @@ function twoAway() {
 
 function twoHome() {
     possAssign("home");
-    topMes = "";
+    messHold = topMes;
     who = "home";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 2;
@@ -356,7 +358,7 @@ function twoHome() {
 
 function oneAway() {
     possAssign("away");
-    topMes = "";
+    messHold = topMes;
     topMes = "EXTRA POINT IS GOOD";
     aScoreRB = parseInt(aScoreRB);
     aScoreRB += 1;
@@ -369,7 +371,7 @@ function oneAway() {
 
 function oneHome() {
     possAssign("home");
-    topMes = "";
+    messHold = topMes;
     topMes = "EXTRA POINT IS GOOD";
     hScoreRB = parseInt(hScoreRB);
     hScoreRB += 1;

@@ -12,6 +12,7 @@ body {
     display: grid;
     text-align: center;
     margin: auto;
+    white-space: nowrap;
     grid-template-columns: 45%;
 }
 
@@ -42,7 +43,7 @@ div {
     background-color: black;
     color: yellow;
     animation: blinkingText infinite;
-    animation-duration: 1s;
+    animation-duration: .8s;
 }
 
 @keyframes blinkingText {
