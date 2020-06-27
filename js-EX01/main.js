@@ -1,10 +1,11 @@
 function padder(str) {
     str = str.toString();
-    let pstart = 0, pend = 0;
+    let pstart = 0,
+        pend = 0;
     let odder = 0;
-    if ((str.length % 2) === 1){odder = 1;}
-    pstart =  (str.length) + ((lineLength / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
-    pend =  lineLength;
+    if ((str.length % 2) === 1) { odder = 1; }
+    pstart = (str.length) + ((lineLength / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
+    pend = lineLength;
     let out = str.padStart([pstart]).padEnd([pend]);
     return out;
 }
@@ -12,44 +13,52 @@ function padder(str) {
 
 function midPad(str) {
     str = str.toString();
-    lineLength = 5;
-    let pstart = 0, pend = 0;
+    let pstart = 0,
+        pend = 0;
     let odder = 0;
-    if ((str.length % 2) === 1){odder = 1;}
-    pstart = (Math.floor((lineLength / 2))) +  (Math.floor((parseInt(str.length) / 2))) + odder;
-    pend =  lineLength;
+    if ((str.length % 2) === 1) { odder = 1; }
+    pstart = (Math.floor((lineLength / 2))) + (Math.floor((parseInt(str.length) / 2))) + odder;
+    pend = lineLength;
     lineLength = 12;
     return str.padStart([pstart]).padEnd([pend]);
 }
 
 function topPad(str) {
     str = str.toString();
-    let pstart = 0, pend = 0;
+    let pstart = 0,
+        pend = 0;
     let odder = 0;
-    if ((str.length % 2) === 1){odder = 1;}
-    pstart =  (str.length) + ((((lineLength *2)+ 5) / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
-    pend =  lineLength;
+    if ((str.length % 2) === 1) { odder = 1; }
+    pstart = (str.length) + ((((lineLength / 2) + 5) / 2).toFixed(0) - (((str.length) - odder) / 2).toFixed(0));
+    pend = lineLength;
     return str.padStart([pstart]).padEnd([pend]);
 }
 
 function downer(down) {
-    switch (down){
-        case 0: return "KO";
-        case 1: return "1st & ";
-        case 2: return "2nd & ";
-        case 3: return "3rd & ";
-        case 4: return "4th & ";
-        case 5: return "PAT";
-        case 6: return "";
-        default: return down;
+    switch (down) {
+        case 0:
+            return "KO";
+        case 1:
+            return "1st & ";
+        case 2:
+            return "2nd & ";
+        case 3:
+            return "3rd & ";
+        case 4:
+            return "4th & ";
+        case 5:
+            return "PAT";
+        case 6:
+            return "";
+        default:
+            return down;
     }
 }
 
-function dAndDisp (down, dist){
+function dAndDisp(down, dist) {
     var dadDisp;
-    if (dist === -1 || down === 0 || down >= 5) {return dadDisp = downer(down);}
-    if (dist === 0) {return dadDisp = downer(down) + "GOAL";}
-    else {return dadDisp = downer(down) + dist;}
+    if (dist === -1 || down === 0 || down >= 5) { return dadDisp = downer(down); }
+    if (dist === 0) { return dadDisp = downer(down) + "GOAL"; } else { return dadDisp = downer(down) + dist; }
 }
 
 
@@ -66,7 +75,7 @@ let dAndDDis = document.getElementById('dAndDDis');
 let possDis = document.getElementById('possDis');
 let prevDaDDis = document.getElementById('prevDaD');
 let prevBODis = document.getElementById('prevBO')
-let topMes = "INIT";
+let topMes = "0987654321X1234567890";
 let home = "home";
 let qtrTxt = "QTR";
 let away = "away";
@@ -85,7 +94,7 @@ let dist = -1;
 let ballOn = -40;
 let possRB = "<>";
 let downRB = 0;
-let distRB  = -1
+let distRB = -1
 let ballOnRB = -40;
 let prevBO = -99;
 let prevDown = 0;
@@ -94,7 +103,7 @@ let prevPoss = "";
 build();
 
 
-function clear(){
+function clear() {
     topper.textContent = "";
     awayDis.textContent = "";
     qtrTitle.textContent = "";
@@ -105,15 +114,15 @@ function clear(){
     dAndDDis.textContent = "";
     possDis.textContent = "";
     ballOnDis.textContent = "";
-    document.getElementById("aNameRB").value ="";
-    document.getElementById("hNameRB").value ="";
-    document.getElementById("aScoreRB").value ="";
-    document.getElementById("hScoreRB").value ="";
-    document.getElementById("qtrRB").value ="";
-    document.getElementById("topMes").value ="";
-    document.getElementById("downInp").value ="";
-    document.getElementById("distInp").value ="";
-    document.getElementById("ballOnInp").value ="";
+    document.getElementById("aNameRB").value = "";
+    document.getElementById("hNameRB").value = "";
+    document.getElementById("aScoreRB").value = "";
+    document.getElementById("hScoreRB").value = "";
+    document.getElementById("qtrRB").value = "";
+    document.getElementById("topMes").value = "";
+    document.getElementById("downInp").value = "";
+    document.getElementById("distInp").value = "";
+    document.getElementById("ballOnInp").value = "";
 }
 
 function build() {
@@ -132,60 +141,65 @@ function build() {
 
 }
 
-function buttonRebuild(){
-    if (document.getElementById("aNameRB").value !== ""){
-        awayRB = document.getElementById("aNameRB").value;}
-    if (document.getElementById("hNameRB").value !== ""){
-        homeRB = document.getElementById("hNameRB").value;}
-    if (document.getElementById("aScoreRB").value !== ""){
-        aScoreRB = document.getElementById("aScoreRB").value;}
-    if (document.getElementById("hScoreRB").value !== ""){
-        hScoreRB = document.getElementById("hScoreRB").value;}
-    if (document.getElementById("qtrRB").value !== ""){
-        qtrRB = document.getElementById("qtrRB").value;}
-    if (document.getElementById("topMes").value !== ""){
-        topMes = document.getElementById("topMes").value;}
-    if (document.getElementById("downInp").value !== ""){
+function buttonRebuild() {
+    if (document.getElementById("aNameRB").value !== "") {
+        awayRB = document.getElementById("aNameRB").value;
+    }
+    if (document.getElementById("hNameRB").value !== "") {
+        homeRB = document.getElementById("hNameRB").value;
+    }
+    if (document.getElementById("aScoreRB").value !== "") {
+        aScoreRB = document.getElementById("aScoreRB").value;
+    }
+    if (document.getElementById("hScoreRB").value !== "") {
+        hScoreRB = document.getElementById("hScoreRB").value;
+    }
+    if (document.getElementById("qtrRB").value !== "") {
+        qtrRB = document.getElementById("qtrRB").value;
+    }
+    if (document.getElementById("topMes").value !== "") {
+        topMes = document.getElementById("topMes").value;
+    }
+    if (document.getElementById("downInp").value !== "") {
         prevDown = parseInt(downRB);
-        downRB = document.getElementById("downInp").value;}
-    if (document.getElementById("distInp").value !== ""){
+        downRB = document.getElementById("downInp").value;
+    }
+    if (document.getElementById("distInp").value !== "") {
         prevDist = parseInt(distRB);
-        distRB = document.getElementById("distInp").value;}
-    if (document.getElementById("ballOnInp").value !== ""){
+        distRB = document.getElementById("distInp").value;
+    }
+    if (document.getElementById("ballOnInp").value !== "") {
         prevBO = parseInt(ballOnRB);
-        ballOnRB = document.getElementById("ballOnInp").value;}
+        ballOnRB = document.getElementById("ballOnInp").value;
+    }
     possCheck();
     clear();
     build()
 }
 
 window.addEventListener("keydown", function(event) {
-    let str =event.key;
-    if (str === 'Enter'){
-        topMes ="";
+    let str = event.key;
+    if (str === 'Enter') {
+        topMes = "";
         playBtn();
     }
 }, true);
 
-function possCheck(){
-    if (document.getElementById("possA").checked === true){poss = "away"}
-        else if (document.getElementById("possH").checked === true){poss = "home";}
-        else {poss = "<->";}
-        possAssign(poss);
+function possCheck() {
+    if (document.getElementById("possA").checked === true) { poss = "away" } else if (document.getElementById("possH").checked === true) { poss = "home"; } else { poss = "<->"; }
+    possAssign(poss);
 }
 
-function possAssign (poss){
-    if (poss === "away"){
+function possAssign(poss) {
+    if (poss === "away") {
         document.getElementById("possA").checked = true;
         document.getElementById("possH").checked = false;
         possRB = "<--";
-    }
-    else if (poss === "home"){
+    } else if (poss === "home") {
         document.getElementById("possA").checked = false;
         document.getElementById("possH").checked = true;
         possRB = "-->";
-    }
-    else {
+    } else {
         document.getElementById("possA").checked = false;
         document.getElementById("possH").checked = false;
         possRB = "<->";
@@ -193,17 +207,17 @@ function possAssign (poss){
 }
 
 
-function gainLoss(prevBO, ballOnRB){
-    let gL =0;
+function gainLoss(prevBO, ballOnRB) {
+    let gL = 0;
     let prev = parseInt(prevBO);
     let now = parseInt(ballOnRB);
 
     //prev is on - side of field
-    if (prev <= -1){
+    if (prev <= -1) {
         prev = (50 - Math.abs(prev)) + 50;
     }
     //now is on - side of field
-    if (now <= -1){
+    if (now <= -1) {
         now = (50 - Math.abs(now)) + 50;
     }
     gL = prev - now;
@@ -232,13 +246,13 @@ function playBtn() {
         //Gain does NOT give first down
         else if (prevDown < 4) {
             down = (prevDown + 1);
-            if (prevDist === 0)
-                {
-                    dist = prevDist;
-                }
-            else {dist = prevDist - gain;}
+            if (prevDist === 0) {
+                dist = prevDist;
+            } else { dist = prevDist - gain; }
+        } else {
+            down = 0;
+            dist = 10;
         }
-        else {down = 0; dist=10;}
     }
     distRB = dist;
     downRB = down;
@@ -249,31 +263,30 @@ function playBtn() {
 }
 
 
-function scoreBlink(to){
+function scoreBlink(to) {
     if (who === "away") {
         document.getElementById('awayDis').setAttribute("class", "teamHL");
         document.getElementById('aScoreDis').setAttribute("class", "blinking");
-    }
-    else {
+    } else {
         document.getElementById('homeDis').setAttribute("class", "teamHL");
         document.getElementById('hScoreDis').setAttribute("class", "blinking");
     }
-    toPass = parseInt(to) * 1000;
+    let toPass = parseInt(to) * 1000;
     setTimeout(forReset, toPass);
 }
 
-function forReset (){
-    document.getElementById('awayDis').setAttribute("class","mainLines");
-    document.getElementById('aScoreDis').setAttribute("class","mainLines");
-    document.getElementById('homeDis').setAttribute("class","mainLines");
-    document.getElementById('hScoreDis').setAttribute("class","mainLines");
+function forReset() {
+    document.getElementById('awayDis').setAttribute("class", "mainLines");
+    document.getElementById('aScoreDis').setAttribute("class", "mainLines");
+    document.getElementById('homeDis').setAttribute("class", "mainLines");
+    document.getElementById('hScoreDis').setAttribute("class", "mainLines");
     setTimeout(function() {
         topMes = "";
         build();
     }, 3000)
 }
 
-function tdAway(){
+function tdAway() {
     possAssign("away");
     topMes = "";
     topMes = "TOUCHDOWN " + [awayRB];
@@ -288,7 +301,7 @@ function tdAway(){
     build();
 }
 
-function tdHome(){
+function tdHome() {
     possAssign("home");
     topMes = "";
     topMes = "TOUCHDOWN " + [homeRB];
@@ -302,7 +315,7 @@ function tdHome(){
     build();
 }
 
-function fgAway(){
+function fgAway() {
     possAssign("away");
     topMes = "";
     who = "away";
@@ -316,7 +329,7 @@ function fgAway(){
     build();
 }
 
-function fgHome(){
+function fgHome() {
     possAssign("home");
     topMes = "";
     who = "home";
@@ -330,7 +343,7 @@ function fgHome(){
     build();
 }
 
-function twoAway(){
+function twoAway() {
     possAssign("away");
     topMes = "";
     who = "away";
@@ -343,7 +356,7 @@ function twoAway(){
     build();
 }
 
-function twoHome(){
+function twoHome() {
     possAssign("home");
     topMes = "";
     who = "home";
@@ -356,7 +369,7 @@ function twoHome(){
     build();
 }
 
-function oneAway(){
+function oneAway() {
     possAssign("away");
     topMes = "";
     topMes = "EXTRA POINT IS GOOD";
@@ -369,7 +382,7 @@ function oneAway(){
     build();
 }
 
-function oneHome(){
+function oneHome() {
     possAssign("home");
     topMes = "";
     topMes = "EXTRA POINT IS GOOD";

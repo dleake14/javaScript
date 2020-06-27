@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2872f1a6-7068-48f2-9cee-f39d28758916" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,13 +22,13 @@
     <option name="myElementSize" value="236" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43912175">
+    <splitter split-orientation="horizontal" split-proportion="0.35196275">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
+                <state relative-caret-position="175">
                   <caret line="16" column="119" selection-start-line="16" selection-start-column="119" selection-end-line="16" selection-end-column="119" />
                   <folding>
                     <element signature="n#style#0;n#input#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -44,11 +46,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="134">
-                  <caret line="228" column="16" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
+                <state relative-caret-position="3834">
+                  <caret line="213" column="16" selection-start-line="213" selection-start-column="16" selection-end-line="213" selection-end-column="16" />
                 </state>
               </provider>
             </entry>
@@ -60,8 +62,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="466">
-                  <caret line="228" column="16" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
+                <state relative-caret-position="364">
+                  <caret line="315" column="12" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -69,8 +71,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/default.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+                <state relative-caret-position="126">
+                  <caret line="7" selection-start-line="7" selection-end-line="7" />
                 </state>
               </provider>
             </entry>
@@ -96,12 +98,14 @@
       <find>clear()</find>
       <find>var</find>
       <find>!=</find>
+      <find>rebuild</find>
     </findStrings>
     <replaceStrings>
       <replace>]</replace>
       <replace>line2</replace>
       <replace>let</replace>
       <replace>!==</replace>
+      <replace>build</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -149,7 +153,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -236,11 +240,21 @@
       <workItem from="1553445640078" duration="5107000" />
       <workItem from="1553475147069" duration="1473000" />
       <workItem from="1553538455719" duration="25000" />
+      <workItem from="1553538535986" duration="967000" />
+      <workItem from="1553625894868" duration="32000" />
+      <workItem from="1553642374212" duration="605000" />
+      <workItem from="1553867574116" duration="37000" />
+      <workItem from="1553868110955" duration="1240000" />
+      <workItem from="1553870805764" duration="114000" />
+      <workItem from="1553870954777" duration="196000" />
+      <workItem from="1554071521655" duration="219000" />
+      <workItem from="1554076343775" duration="3000" />
+      <workItem from="1554215559774" duration="2000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106418000" />
+    <option name="totallyTimeSpent" value="109833000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -266,7 +280,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298969" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32890856" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.19440353" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.19440353" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033265" side_tool="true" weight="0.29307806" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -384,7 +398,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="175">
           <caret line="16" column="119" selection-start-line="16" selection-start-column="119" selection-end-line="16" selection-end-column="119" />
           <folding>
             <element signature="n#style#0;n#input#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -403,15 +417,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="228" column="16" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
+        <state relative-caret-position="364">
+          <caret line="315" column="12" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/default.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+        <state relative-caret-position="126">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>

@@ -2,31 +2,23 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 100%;
     color: rgb(251, 255, 0);
-    -moz-box-sizing: border-box;
+    /* -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    box-sizing: border-box; */
     background: rgb(0, 0, 0);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
 }
 
 div {
     font-size: 150%;
     white-space: pre-wrap;
-    display: inline-block;
+    /* display: inline-block; */
     font-weight: bolder;
     text-transform: uppercase;
-}
-
-.mainLines {
-    display: inline-block;
-    font-size: 150%;
-    white-space: pre-wrap;
-    width: 10%;
-}
-
-.topLines {
-    display: inline-block;
-    font-size: 150%;
-    white-space: pre-wrap;
 }
 
 .teamHL {
